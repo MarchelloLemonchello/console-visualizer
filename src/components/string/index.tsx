@@ -1,19 +1,19 @@
-import React, {FC} from 'react';
-import { Wrapper } from '../Wrapper';
+import React from 'react';
+import styled from "styled-components";
+import {TTypeViewer} from "../../model/propsTypes";
 
-export interface IString {
-  type: 'string';
-  value: string;
-}
+const StringSpan = styled.span`
+    color: #bfbfbf;
+`
 
-interface StringProps {
-  data: string
-}
+export const StringComponent: TTypeViewer = ({ data }) => {
+  if (typeof data !== 'string') {
+    throw new TypeError('ObjectViewer: data has invalid type');
+  }
 
-export const String: FC<StringProps> = ({ data }) => {
   return (
-    <Wrapper>
-      {data}
-    </Wrapper>
+    <StringSpan>
+      &#34;{data}&#34;
+    </StringSpan>
   );
 };

@@ -1,6 +1,6 @@
 {
   "name": "console-visualizer",
-  "version": "1.0.1",
+  "version": "1.0.36",
   "description": "",
   "main": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
@@ -10,7 +10,8 @@
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "prepack": "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -28,16 +29,16 @@
     "eslint-plugin-n": "^17.15.1",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-react": "^7.37.4",
-    "node-sass": "^9.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "rollup": "^4.34.8",
     "rollup-plugin-dts": "^6.1.1",
-    "rollup-plugin-postcss": "^4.0.2",
+    "styled-components": "^6.1.15",
     "typescript": "^5.7.3"
   },
   "peerDependencies": {
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "styled-components": "^6.1.15"
   }
 }

@@ -1,19 +1,39 @@
-import React, {FC} from 'react';
+import React, { FC} from 'react';
 
-import { Number } from "../Number";
-import { String } from "../String";
-import {TAny} from "../../model/propsTypes";
+import { NumberComponent} from "../number";
+import { StringComponent } from "../string";
+import { ObjectComponent } from "../object"
+import { ArrayComponent } from "../array"
+import { FunctionComponent } from "../function"
 
+import {AnalyzerProps, TAny, TNestedDataRenderer, TTypeViewer} from "../../model/propsTypes";
+import {TypeText, Wrapper} from "../styleComponents";
 
-const listOfTypes = {
-  string: String,
-  number: Number,
+const map = new Map<TAny['type'], TTypeViewer>();
+
+map.set('string', StringComponent);
+map.set('number', NumberComponent);
+map.set('object', ObjectComponent);
+map.set('array', ArrayComponent);
+map.set('function', FunctionComponent);
+
+const renderData: TNestedDataRenderer = ({data, name, pre, post}) => {
+  const Component = map.get(data.type);
+
+  if (!Component) {
+    throw new Error('Unknown type')
+  }
+
+  return   (<Wrapper>
+    {pre}
+    {name && <span>{name} : </span>}
+    <TypeText>{data.type}: </TypeText>
+    <Component data={data.value} renderNestedData={renderData} />
+    {post}
+  </Wrapper>)
 }
 
-interface AnalyzerProps {
-  data: TAny
-}
 
-export const Analyzer: FC<AnalyzerProps> = ({ data}) => {
-  return listOfTypes[data.type];
+export const Analyzer: FC<AnalyzerProps> = (options) => {
+  return renderData(options)
 };

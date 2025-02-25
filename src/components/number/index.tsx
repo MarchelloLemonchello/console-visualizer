@@ -1,19 +1,19 @@
-import React, {FC} from 'react';
-import { Wrapper } from '../Wrapper';
+import React from 'react';
+import styled from 'styled-components';
+import {TTypeViewer} from "../../model/propsTypes";
 
-export interface INumber {
-  type: 'number';
-  value: number;
-}
+ const NumberSpan = styled.span`
+     color: #8ed38e;
+ `
 
-interface NumberProps {
-  data: number
-}
+export const NumberComponent: TTypeViewer = ({ data }) => {
+  if (typeof data !== 'number') {
+    throw new TypeError('ObjectViewer: data has invalid type');
+  }
 
-export const Number: FC<NumberProps> = ({ data }) => {
   return (
-    <Wrapper>
+    <NumberSpan>
       {data}
-    </Wrapper>
+    </NumberSpan>
   );
 };

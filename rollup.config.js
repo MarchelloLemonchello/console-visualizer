@@ -1,5 +1,4 @@
 const typescript = require("@rollup/plugin-typescript");
-const postcss = require("rollup-plugin-postcss");
 const url = require("@rollup/plugin-url");
 const svgr = require("@svgr/rollup")
 const terser = require("@rollup/plugin-terser")
@@ -20,18 +19,12 @@ module.exports = [
       typescript({
         tsconfig: './tsconfig.json'
       }),
-      postcss({
-        extract: 'index.css',
-        modules: true,
-        use: ['sass'],
-        minimize: true,
-      }),
       url(),
       svgr({
         icon: true
       }),
-      terser()
-    ]
+      terser(),
+    ],
   }, {
   input: "dist/esm/types/index.d.ts",
     output: [
