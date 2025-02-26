@@ -17,7 +17,8 @@ module.exports = [
     external: ["react"],
     plugins: [
       typescript({
-        tsconfig: './tsconfig.json'
+        tsconfig: './tsconfig.json',
+        exclude: ['**/*.stories.tsx']
       }),
       url(),
       svgr({

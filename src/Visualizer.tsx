@@ -21,10 +21,11 @@ const borderColorVariants = {
 export const Visualizer: FC<VisualizerProps> = ({data, name, variant}) => {
 
   const ConsoleState = styled.div`
-    padding: 12px;
-    background: #2e2e2e;
-    border-radius: 6px;
-    border: 2px solid ${variant ? borderColorVariants[variant] : '#2e2e2e'};
+      padding: 12px;
+      color: #f3fdeb;
+      background: #2e2e2e;
+      border-radius: 6px;
+      border: 2px solid ${variant ? borderColorVariants[variant] : '#2e2e2e'};
   `
 
   return (
