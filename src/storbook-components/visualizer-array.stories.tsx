@@ -1,13 +1,11 @@
 import React from 'react';
 import {Visualizer, VisualizerProps} from "../Visualizer";
 import {Meta, StoryFn} from "@storybook/react";
-
 export default {
   title: 'visualizer/array',
   component: Visualizer,
   args: {
-    name: 'arr',
-    data: {
+    data: [{
       type: "array",
       value: [
         {
@@ -15,11 +13,38 @@ export default {
           value: 1,
         },
         {
-          type: "string",
-          value: "text",
-        },
+          type: "object",
+          value: {
+            bip: {
+              type: "string",
+              value: "text",
+            }
+          }
+        }
       ]
-    },
+    }, {
+      type: "bigint",
+      value: '9007199254740991n'
+    }, {
+      type: "object",
+      value: {
+        t: {
+          type: "boolean",
+          value: true
+        },
+        f: {
+          type: "boolean",
+          value: false
+        }
+      }
+    }, {
+      type: "undefined",
+      value: undefined,
+    },{
+      type: "null",
+      value: null,
+    }
+    ],
     variant: 'log'
   } ,
   argTypes: {

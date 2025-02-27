@@ -20,7 +20,24 @@ export interface IArray {
   type: 'array';
   value: TAny[];
 }
-export type TAny = INumber | IString | IFunction | IObject | IArray;
+export interface IUndefined {
+  type: 'undefined';
+  value: undefined;
+}
+export interface IBigint {
+  type: 'bigint';
+  value: string;
+}
+export interface IBoolean {
+  type: 'boolean';
+  value: boolean;
+}
+export interface INull {
+  type: 'null';
+  value: null;
+}
+
+export type TAny = INumber | IString | IFunction | IObject | IArray | IUndefined | IBigint | IBoolean | INull;
 
 export interface AnalyzerProps {
   data: TAny
@@ -30,4 +47,4 @@ export interface AnalyzerProps {
 }
 
 export type TNestedDataRenderer = (options: AnalyzerProps) => ReactNode
-export type TTypeViewer = ComponentType<{ data: TAny['value'], renderNestedData: TNestedDataRenderer }>
+export type TTypeViewer = ComponentType<{ data: TAny['value'], renderNestedData: TNestedDataRenderer, type:  TAny['type']}>

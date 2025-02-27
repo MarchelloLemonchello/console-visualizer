@@ -1,19 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import {TTypeViewer} from "../../model/propsTypes";
+import {TypeText} from "../styleComponents";
 
  const NumberSpan = styled.span`
      color: #8ed38e;
  `
 
-export const NumberComponent: TTypeViewer = ({ data }) => {
+export const NumberComponent: TTypeViewer = ({ data , type}) => {
   if (typeof data !== 'number') {
-    throw new TypeError('ObjectViewer: data has invalid type');
+    throw new TypeError('NumberComponent: data has invalid type');
   }
 
   return (
-    <NumberSpan>
-      {data}
-    </NumberSpan>
+    <>
+      <TypeText>{type}: </TypeText>
+      <NumberSpan>
+        {data}
+      </NumberSpan>
+    </>
   );
 };

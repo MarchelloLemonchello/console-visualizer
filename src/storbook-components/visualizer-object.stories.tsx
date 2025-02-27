@@ -6,8 +6,7 @@ export default {
   title: 'visualizer/object',
   component: Visualizer,
   args: {
-    name: 'obj',
-    data: {
+    data: [{
       type: "object",
       value: {
         num: {
@@ -19,7 +18,10 @@ export default {
           value: "text",
         }
       }
-    },
+    }, {
+      type: "string",
+      value: "text",
+    }],
     variant: 'warn'
   } ,
   argTypes: {

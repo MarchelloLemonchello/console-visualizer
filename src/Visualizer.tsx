@@ -6,7 +6,7 @@ import styled from "styled-components";
 type TVariant = 'log' | 'info' | 'warn' | 'error';
 
 export interface VisualizerProps {
-  data: TAny
+  data: TAny[]
   name?: string
   variant?: TVariant
 }
@@ -14,7 +14,7 @@ export interface VisualizerProps {
 const borderColorVariants = {
   log: '#2e2e2e',
   info: '#00b5bf',
-  warn: '#f76b00',
+  warn: '#f4970b',
   error: '#ec0000',
 } as Record<TVariant, string>
 
@@ -30,7 +30,9 @@ export const Visualizer: FC<VisualizerProps> = ({data, name, variant}) => {
 
   return (
     <ConsoleState>
-       <Analyzer data={data} pre={name ? name + " = ": ''} post=" ;"/>
+      {data.map(unoData => (
+        <Analyzer data={unoData} pre={name ? name + " = ": ''} post=" ;"/>
+      ))}
     </ConsoleState>
   );
 };

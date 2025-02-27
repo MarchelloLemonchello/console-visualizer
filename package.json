@@ -1,6 +1,6 @@
 {
   "name": "console-visualizer",
-  "version": "1.0.36",
+  "version": "1.0.38",
   "description": "",
   "main": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
