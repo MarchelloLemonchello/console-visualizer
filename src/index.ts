@@ -1,5 +1,2 @@
-import { Visualizer } from './Visualizer';
-
-export {
-  Visualizer
-};
+export { Visualizer } from './Visualizer';
+export type * from './model/propsTypes'

@@ -29,7 +29,11 @@ export const MapComponent: TTypeViewer= ({ data, renderNestedData, type }) => {
       {
         toggle
           ? <>
-            {data.map((dataElement) => renderNestedData({data: dataElement}))}
+            {data.map((dataElement, i) => (
+              <span key={i}>
+                {renderNestedData({data: dataElement})}
+              </span>
+            ))}
             {renderNestedData({data:size, name: 'size'})}
             </>
           : "..."

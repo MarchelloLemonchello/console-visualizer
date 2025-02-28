@@ -1,6 +1,6 @@
 {
   "name": "console-visualizer",
-  "version": "1.0.38",
+  "version": "1.0.41",
   "description": "",
   "main": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
@@ -26,7 +26,6 @@
     "@rollup/plugin-url": "^8.0.2",
     "@storybook/addon-essentials": "^8.6.0",
     "@storybook/addon-interactions": "^8.6.0",
-    "@storybook/addon-onboarding": "^8.6.0",
     "@storybook/addon-webpack5-compiler-swc": "^2.1.0",
     "@storybook/blocks": "^8.6.0",
     "@storybook/react": "^8.6.0",

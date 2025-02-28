@@ -26,8 +26,12 @@ export const ObjectComponent: TTypeViewer = ({ data , renderNestedData, type}) =
       {
         toggle
           ?
-          dataArray.map((dataElement, i) =>
-            renderNestedData({name: dataElement[0], data: dataElement[1], post: dataArray.length - 1 !== i ? " ," : ""})
+          dataArray.map((dataElement, i) => (
+            <span key={i}>
+              {renderNestedData({name: dataElement[0], data: dataElement[1], post: dataArray.length - 1 !== i ? " ," : ""})}
+            </span>
+          )
+
           )
           :
           "..."

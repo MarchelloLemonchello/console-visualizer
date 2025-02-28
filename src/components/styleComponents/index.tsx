@@ -21,3 +21,8 @@ export const ItemsCount = styled.small`
 export const Flex = styled.div`
    display: flex;
 `
+
+export const DownLine = styled.div`
+    padding: 4px 0;
+   border-bottom: 1px solid #646464;
+`
