@@ -6,6 +6,24 @@ export default {
   component: Visualizer,
   args: {
     data: [{
+      type: "map",
+      value: [
+        {
+          type: "mapItem",
+          value: {
+            key: {
+              type: "number",
+              value: 1,
+            },
+            value: {
+              type: "string",
+              value: '1',
+            }
+          }
+        }
+      ]
+    },
+    {
       type: "array",
       value: [
         {

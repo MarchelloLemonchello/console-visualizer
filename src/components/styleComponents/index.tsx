@@ -18,3 +18,6 @@ export const ButtonExpand = styled.span`
 export const ItemsCount = styled.small`
     color: #757575;
 `
+export const Flex = styled.div`
+   display: flex;
+`

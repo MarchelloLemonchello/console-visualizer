@@ -7,11 +7,14 @@ import { ArrayComponent } from "../array"
 import { BigintComponent } from "../bigint";
 import { FunctionComponent } from "../function"
 import { UndefinedComponent } from "../undefined";
+import { BooleanComponent } from "../boolean";
+import { NullComponent } from "../null";
+import { SymbolComponent } from "../symbol";
 
 import {AnalyzerProps, TAny, TNestedDataRenderer, TTypeViewer} from "../../model/propsTypes";
 import {Wrapper} from "../styleComponents";
-import {BooleanComponent} from "../boolean";
-import {NullComponent} from "../null";
+import {MapComponent} from "../map";
+import {MapItemComponent} from "../map/MapItem";
 
 const map = new Map<TAny['type'], TTypeViewer>();
 
@@ -24,6 +27,10 @@ map.set('undefined', UndefinedComponent);
 map.set('bigint', BigintComponent);
 map.set('boolean', BooleanComponent);
 map.set('null', NullComponent)
+map.set('symbol', SymbolComponent)
+map.set('map', MapComponent)
+map.set('mapItem', MapItemComponent)
+
 
 const renderData: TNestedDataRenderer = ({data, name, pre, post}) => {
   const Component = map.get(data.type);

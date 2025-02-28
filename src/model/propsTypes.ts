@@ -36,8 +36,24 @@ export interface INull {
   type: 'null';
   value: null;
 }
+export interface ISymbol {
+  type: 'symbol';
+  value: string;
+}
+export interface IMap {
+  type: 'map';
+  value: IMapItem[];
+}
 
-export type TAny = INumber | IString | IFunction | IObject | IArray | IUndefined | IBigint | IBoolean | INull;
+export interface IMapItem {
+  type: 'mapItem';
+  value: {
+    key: TAny,
+    value: TAny
+  };
+}
+
+export type TAny = INumber | IString | IFunction | IObject | IArray | IUndefined | IBigint | IBoolean | INull | ISymbol | IMap | IMapItem;
 
 export interface AnalyzerProps {
   data: TAny
